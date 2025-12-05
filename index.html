@@ -8,12 +8,10 @@
 <link rel="stylesheet" href="style.css">
 
 <!-- ========================================================= -->
-<!--  THREE.js (STABLE CDN)                                   -->
+<!--  WORKING THREE.js + OrbitControls (r128 global namespace) -->
 <!-- ========================================================= -->
-<script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
-
-<!-- OrbitControls (matching version) -->
-<script src="https://unpkg.com/three@0.152.2/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/controls/OrbitControls.js"></script>
 
 </head>
 <body>
@@ -40,7 +38,7 @@
 
     <h2>3D Loading Calculator</h2>
 
-    <!-- Vehicle type selector -->
+    <!-- Vehicle selector -->
     <div class="input-row">
         <div class="input-block">
             <label>Vehicle Type</label>
@@ -68,9 +66,9 @@
 
 
 <!-- ========================================================= -->
-<!--  MAIN WIDGET LOGIC                                        -->
+<!--  LOGIC                                                    -->
 <!-- ========================================================= -->
-<script src="widget.js?v=3"></script>
+<script src="widget.js?v=10"></script>
 
 </body>
 </html>
