@@ -1,15 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>3D Loading Calculator Demo</title>
+<meta charset="UTF-8">
+<title>3D Loading Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<h2>3D Loading Calculator (Demo Scaffold)</h2>
-<div id="loading-widget"></div>
+
+<!-- THREE.js + OrbitControls -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/examples/js/controls/OrbitControls.js"></script>
+
+</head>
+<body>
+
+<!-- ========================================================= -->
+<!--  3D VIEWER CONTAINER                                      -->
+<!-- ========================================================= -->
+<div id="viewer-container">
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Vehicle navigation -->
+    <div id="vehicle-nav">
+        <button id="prevVehicle" disabled>&larr; Prev</button>
+        <span id="vehicleLabel">Vehicle 1 / 1</span>
+        <button id="nextVehicle" disabled>Next &rarr;</button>
+    </div>
+</div>
+
+
+<!-- ========================================================= -->
+<!--  INPUT PANEL                                              -->
+<!-- ========================================================= -->
+<div id="input-panel">
+
+    <h2>3D Loading Calculator</h2>
+    <p class="subtitle">Add cargo items, configure dimensions, weight and palletization, then calculate loading.</p>
+
+    <!-- Cargo items list -->
+    <div id="items-list"></div>
+
+    <!-- Add item button -->
+    <button id="addItemBtn" class="primary-btn">+ Add Cargo Item</button>
+
+    <!-- Calculate button -->
+    <button id="calculateBtn" class="calculate-btn">Calculate Loading</button>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!--  JS LOGIC                                                 -->
+<!-- ========================================================= -->
 <script src="widget.js"></script>
+
 </body>
 </html>
