@@ -7,22 +7,17 @@
 
 <link rel="stylesheet" href="style.css">
 
-<!-- ========================================================= -->
-<!--  WORKING THREE.js + OrbitControls (r128 global namespace) -->
-<!-- ========================================================= -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/controls/OrbitControls.js"></script>
+<!-- Three.js r119 (works with THREE.OrbitControls) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r119/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r119/examples/js/controls/OrbitControls.js"></script>
 
 </head>
 <body>
 
-<!-- ========================================================= -->
-<!--  3D VIEWER CONTAINER                                      -->
-<!-- ========================================================= -->
+<!-- 3D VIEWER -->
 <div id="viewer-container">
     <canvas id="three-canvas"></canvas>
 
-    <!-- Vehicle navigation -->
     <div id="vehicle-nav">
         <button id="prevVehicle" disabled>&larr; Prev</button>
         <span id="vehicleLabel">Vehicle 1 / 1</span>
@@ -30,15 +25,11 @@
     </div>
 </div>
 
-
-<!-- ========================================================= -->
-<!--  INPUT PANEL                                              -->
-<!-- ========================================================= -->
+<!-- INPUT PANEL -->
 <div id="input-panel">
 
     <h2>3D Loading Calculator</h2>
 
-    <!-- Vehicle selector -->
     <div class="input-row">
         <div class="input-block">
             <label>Vehicle Type</label>
@@ -53,22 +44,15 @@
 
     <p class="subtitle">Add cargo items, configure dimensions, weight and palletization, then calculate loading.</p>
 
-    <!-- Cargo items list -->
     <div id="items-list"></div>
 
-    <!-- Add item button -->
     <button id="addItemBtn" class="primary-btn">+ Add Cargo Item</button>
 
-    <!-- Calculate button -->
     <button id="calculateBtn" class="calculate-btn">Calculate Loading</button>
-
 </div>
 
-
-<!-- ========================================================= -->
-<!--  LOGIC                                                    -->
-<!-- ========================================================= -->
-<script src="widget.js?v=10"></script>
+<!-- WIDGET LOGIC -->
+<script src="widget.js?v=5"></script>
 
 </body>
 </html>
