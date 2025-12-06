@@ -9,25 +9,22 @@ html, body {
     height: 100%;
     width: 100%;
     overflow: hidden;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background-color: #1e1e1e;
+    background: #1e1e1e;
     color: #f0f0f0;
-    display: flex;
-    flex-direction: row;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-/* ============================ */
-/* 3D VIEWER SECTION            */
-/* ============================ */
+/* =========================== */
+/* CANVAS & VIEWER — LEFT SIDE */
+/* =========================== */
 
 #viewer-container {
-    flex: 2;
-    position: relative;
-    background-color: #000;
-    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 65%;
+    height: 100%;
+    background-color: black;
 }
 
 #three-canvas {
@@ -36,10 +33,7 @@ body {
     display: block;
 }
 
-/* ============================ */
-/* VEHICLE NAVIGATION (BOTTOM)  */
-/* ============================ */
-
+/* VEHICLE NAVIGATION */
 #vehicle-nav {
     position: absolute;
     bottom: 20px;
@@ -50,57 +44,114 @@ body {
 }
 
 #vehicle-nav button {
+    background: #333;
+    color: #fff;
     padding: 8px 16px;
-    background-color: #333;
-    color: #eee;
     border: 1px solid #555;
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
 }
 
 #vehicle-nav button:disabled {
-    opacity: 0.45;
+    opacity: 0.5;
     cursor: not-allowed;
 }
 
-/* ============================ */
-/* INPUT PANEL (RIGHT SIDEBAR)  */
-/* ============================ */
+/* =========================== */
+/* SIDEBAR — RIGHT PANEL       */
+/* =========================== */
 
 #input-panel {
-    flex: 1;
-    background-color: #2a2a2a;
-    padding: 28px;
-    overflow-y: auto;
-    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35%;
+    height: 100%;
+    background: #2a2a2a;
     border-left: 1px solid #444;
+    padding: 25px;
+    overflow-y: auto;
 }
 
 #input-panel h2 {
     font-size: 22px;
-    margin-bottom: 20px;
     color: #00d8ff;
+    margin-bottom: 20px;
 }
 
 .subtitle {
-    margin-bottom: 20px;
-    font-size: 14px;
+    font-size: 13px;
+    margin-bottom: 15px;
     color: #bbb;
 }
 
-/* ============================ */
-/* INPUT BLOCKS                 */
-/* ============================ */
+/* =========================== */
+/* INPUT FIELDS                */
+/* =========================== */
 
 .input-row {
     display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .input-block {
     flex: 1;
-    margin-right: 12px;
+    margin-right: 10px;
 }
 
-.input-block label {
+input, select {
+    width: 100%;
+    padding: 10px;
+    background: #444;
+    border: 1px solid #666;
+    color: #fff;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* =========================== */
+/* CARGO ITEM CARD             */
+/* =========================== */
+
+.cargo-item {
+    background: #3a3a3a;
+    border: 1px solid #555;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.cargo-item .row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.remove-item {
+    background: #ff4d4d;
+    padding: 6px 10px;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* =========================== */
+/* BUTTONS                     */
+/* =========================== */
+
+.primary-btn,
+.calculate-btn {
+    padding: 12px 18px;
+    background: #00d8ff;
+    color: #000;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.primary-btn:hover,
+.calculate-btn:hover {
+    background: #0ae2ff;
+}
