@@ -236,6 +236,5 @@ document.getElementById("nextVehicle").onclick = () => {
    START
    ========================================================= */
 
-init3D();
 // START APP
 window.addEventListener("load", init3D);
