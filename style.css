@@ -5,20 +5,29 @@
     padding: 0;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
     background-color: #1e1e1e;
     color: #f0f0f0;
     display: flex;
-    height: 100vh;
-    overflow: hidden;
+    flex-direction: row;
 }
 
-/* LAYOUT */
+/* ============================ */
+/* 3D VIEWER SECTION            */
+/* ============================ */
+
 #viewer-container {
-    flex: 1.5;
+    flex: 2;
     position: relative;
     background-color: #000;
+    min-height: 100vh;
 }
 
 #three-canvas {
@@ -27,125 +36,71 @@ body {
     display: block;
 }
 
-/* NAVIGATION */
+/* ============================ */
+/* VEHICLE NAVIGATION (BOTTOM)  */
+/* ============================ */
+
 #vehicle-nav {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: 12px;
 }
 
 #vehicle-nav button {
-    padding: 8px 14px;
+    padding: 8px 16px;
     background-color: #333;
-    color: #f0f0f0;
+    color: #eee;
     border: 1px solid #555;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
 }
 
 #vehicle-nav button:disabled {
-    opacity: 0.5;
+    opacity: 0.45;
     cursor: not-allowed;
 }
 
-/* PANEL */
+/* ============================ */
+/* INPUT PANEL (RIGHT SIDEBAR)  */
+/* ============================ */
+
 #input-panel {
     flex: 1;
     background-color: #2a2a2a;
-    padding: 25px;
+    padding: 28px;
     overflow-y: auto;
+    height: 100vh;
     border-left: 1px solid #444;
 }
 
 #input-panel h2 {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 20px;
     color: #00d8ff;
 }
 
 .subtitle {
-    margin-bottom: 15px;
-    font-size: 13px;
+    margin-bottom: 20px;
+    font-size: 14px;
     color: #bbb;
 }
 
-/* INPUTS */
+/* ============================ */
+/* INPUT BLOCKS                 */
+/* ============================ */
+
 .input-row {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .input-block {
     flex: 1;
-    margin-right: 10px;
+    margin-right: 12px;
 }
 
 .input-block label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-
-input, select {
-    width: 100%;
-    padding: 8px;
-    background-color: #444;
-    color: #fff;
-    border: 1px solid #666;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
-/* CARGO ITEMS */
-.cargo-item {
-    background-color: #3a3a3a;
-    border: 1px solid #555;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-}
-
-.cargo-item .row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.cargo-item input,
-.cargo-item select {
-    flex: 1;
-}
-
-/* BUTTONS */
-button {
-    font-size: 14px;
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-}
-
-.primary-btn,
-.calculate-btn {
-    display: inline-block;
-    padding: 10px 18px;
-    background-color: #00d8ff;
-    color: #000;
-    border-radius: 6px;
-    font-weight: 600;
-    margin-right: 10px;
-    margin-top: 10px;
-}
-
-.remove-item {
-    background-color: #ff4d4d;
-    color: #fff;
-    border: none;
-    padding: 6px 10px;
-    border-radius: 4px;
-    font-size: 12px;
-    margin-top: 8px;
-}
