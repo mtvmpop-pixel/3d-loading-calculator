@@ -80,7 +80,15 @@
 </div>
 
 <!-- LOGIC -->
-<script src="widget.js?v=1001"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // sada se widget.js učitava TEK nakon što postoji DOM
+    let s = document.createElement("script");
+    s.src = "widget.js?v=2001";
+    document.body.appendChild(s);
+});
+</script>
+
 
 </body>
 </html>
