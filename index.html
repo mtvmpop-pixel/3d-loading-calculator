@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>3D Loading Calculator</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css" />
 
-<!-- Three.js (r119) and local OrbitControls -->
+<!-- THREE.js r119 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r119/three.min.js"></script>
 <script src="OrbitControls.js"></script>
 
 </head>
 <body>
 
-<!-- 3D VIEWER -->
+<!-- 3D VIEWER AREA (LEFT) -->
 <div id="viewer-container">
     <canvas id="three-canvas"></canvas>
 
@@ -25,7 +25,7 @@
     </div>
 </div>
 
-<!-- INPUT PANEL -->
+<!-- INPUT PANEL (RIGHT SIDEBAR) -->
 <div id="input-panel">
 
     <h2>3D Loading Calculator</h2>
@@ -42,12 +42,11 @@
         </div>
     </div>
 
-    <p class="subtitle">Add cargo items, configure dimensions, weight and palletization, then calculate loading.</p>
+    <p class="subtitle">Add cargo items, configure dimensions, weight and palletization.</p>
 
-    <!-- Container for dynamically added items -->
     <div id="items-list"></div>
 
-    <!-- Template used by JS to generate new cargo item -->
+    <!-- TEMPLATE FOR CARGO ITEMS -->
     <template id="item-template">
         <div class="cargo-item">
             <label>Cargo Item</label>
@@ -77,10 +76,11 @@
 
     <button id="addItemBtn" class="primary-btn">+ Add Cargo Item</button>
     <button id="calculateBtn" class="calculate-btn">Calculate Loading</button>
+
 </div>
 
-<!-- JS Logic -->
-<script src="widget.js?v=999"></script>
+<!-- LOGIC -->
+<script src="widget.js?v=1001"></script>
 
 </body>
 </html>
