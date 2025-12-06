@@ -7,7 +7,7 @@
 
 <link rel="stylesheet" href="style.css">
 
-<!-- Three.js r119 (works with THREE.OrbitControls) -->
+<!-- Three.js (r119) and local OrbitControls -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r119/three.min.js"></script>
 <script src="OrbitControls.js"></script>
 
@@ -44,15 +44,43 @@
 
     <p class="subtitle">Add cargo items, configure dimensions, weight and palletization, then calculate loading.</p>
 
+    <!-- Container for dynamically added items -->
     <div id="items-list"></div>
 
-    <button id="addItemBtn" class="primary-btn">+ Add Cargo Item</button>
+    <!-- Template used by JS to generate new cargo item -->
+    <template id="item-template">
+        <div class="cargo-item">
+            <label>Cargo Item</label>
 
+            <div class="row">
+                <input type="number" class="item-l" placeholder="Length (cm)">
+                <input type="number" class="item-w" placeholder="Width (cm)">
+                <input type="number" class="item-h" placeholder="Height (cm)">
+            </div>
+
+            <div class="row">
+                <input type="number" class="item-weight" placeholder="Weight (kg)">
+            </div>
+
+            <div class="row">
+                <label>Palletized:</label>
+                <select class="item-pallet">
+                    <option value="no">No</option>
+                    <option value="euro">Europallet</option>
+                    <option value="custom">Custom Pallet</option>
+                </select>
+            </div>
+
+            <button class="remove-item">Remove</button>
+        </div>
+    </template>
+
+    <button id="addItemBtn" class="primary-btn">+ Add Cargo Item</button>
     <button id="calculateBtn" class="calculate-btn">Calculate Loading</button>
 </div>
 
-<!-- WIDGET LOGIC -->
-<script src="widget.js?v=5"></script>
+<!-- JS Logic -->
+<script src="widget.js?v=999"></script>
 
 </body>
 </html>
