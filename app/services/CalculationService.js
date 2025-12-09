@@ -1,7 +1,8 @@
 import { PalletCalculator } from '../core/calculators/PalletCalculator'
 import { ContainerCalculator } from '../core/calculators/ContainerCalculator'
 import { generateOptimizationRecommendations } from './optimizationRecommendations'
-import { groupByCompatibility } from '../config/pallets/palletDimensions'
+import { groupCargoByCompatibility } from '../config/packaging/packagingRules'
+import { RECOMMENDATION_CONFIG } from '../config/constants'
 
 export class CalculationService {
   constructor() {
@@ -12,7 +13,7 @@ export class CalculationService {
   // PALETIZACIJA + KONTEJNER
   calculateWithPalletization(cargoItems, palletType, palletConfig, containerType) {
     // 1. Proveri kompatibilnost
-    const groups = groupByCompatibility(cargoItems)
+    const groups = groupCargoByCompatibility(cargoItems)
     const compatibilityWarnings = this.generateCompatibilityWarnings(groups)
 
     // 2. Izračunaj paletizaciju
@@ -88,7 +89,7 @@ export class CalculationService {
   generatePalletRecommendations(avgUtilization, palletResults, containerType) {
     const recs = []
     
-    if (parseFloat(avgUtilization) < 70) {
+    if (parseFloat(avgUtilization) < RECOMMENDATION_CONFIG.MIN_UTILIZATION_FOR_WARNING) {
       recs.push(`💡 Prosečna iskorišćenost paleta je ${avgUtilization}% - razmislite o optimizaciji dimenzija`)
     }
 
@@ -123,7 +124,7 @@ export class CalculationService {
     
     if (containerResult.containersNeeded > 1) {
       const lastUtil = parseFloat(lastContainer.volumeUtilization)
-      if (lastUtil < 50) {
+      if (lastUtil < RECOMMENDATION_CONFIG.MIN_LAST_CONTAINER_UTILIZATION) {
         recs.push(`📦 Poslednji kontejner je samo ${lastUtil}% pun - razmislite o optimizaciji ili dodavanju još tereta`)
       }
     }
@@ -132,11 +133,12 @@ export class CalculationService {
     const volumeUtil = parseFloat(firstContainer.volumeUtilization)
     const weightUtil = parseFloat(firstContainer.weightUtilization)
 
-    if (volumeUtil < 70) {
+    if (volumeUtil < RECOMMENDATION_CONFIG.MIN_UTILIZATION_FOR_WARNING) {
       recs.push(`💡 Iskorišćenost prostora je ${volumeUtil}% - razmislite o manjoj jedinici prevoza`)
     }
 
-    if (weightUtil < 50 && volumeUtil > 80) {
+    if (weightUtil < RECOMMENDATION_CONFIG.MIN_WEIGHT_UTILIZATION_FOR_SUGGESTION && 
+        volumeUtil > RECOMMENDATION_CONFIG.MIN_VOLUME_FOR_WEIGHT_SUGGESTION) {
       recs.push(`⚖️ Kontejner je pun po volumenu (${volumeUtil}%), ali ima kapaciteta po težini (${weightUtil}%) - možete dodati teži teret`)
     }
 

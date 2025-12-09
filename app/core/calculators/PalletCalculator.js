@@ -1,8 +1,7 @@
 import { findBestOrientation } from '../algorithms/binPacking3D'
 import { palletDimensions } from '../../config/pallets/palletDimensions'
+import { HEIGHT_OPTIONS, PALLET_BASE_HEIGHT } from '../../config/constants'
 
-const HEIGHT_OPTIONS = [70, 80, 90, 100, 110, 120]
-const PALLET_BASE_HEIGHT = 15
 
 export class PalletCalculator {
   constructor(palletType, palletConfig) {
