@@ -1,5 +1,5 @@
-import { findBestOrientation } from './binPacking3D'
-import { palletDimensions } from './palletDimensions'
+import { findBestOrientation } from '../core/algorithms/binPacking3D'
+import { palletDimensions } from '../config/pallets/palletDimensions'
 import { generateOptimizationRecommendations } from './optimizationRecommendations'
 
 // Testiraj sve moguće visine palete

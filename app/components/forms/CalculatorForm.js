@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { containerOptions } from '../utils/containerDimensions'
+import { containerOptions } from '../../config/vehicles/containerDimensions'
 import CargoItemForm from './CargoItemForm'
 
 export default function CalculatorForm({ 
@@ -160,10 +160,59 @@ export default function CalculatorForm({
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">Izaberi paletu</option>
-                  <option value="EUR">EUR Paleta (120×80 cm)</option>
-                  <option value="Industrial">Industrijska Paleta (100×120 cm)</option>
+                  <optgroup label="EUR Palete">
+                    <option value="EUR Paleta">EUR Paleta (120×80 cm)</option>
+                  </optgroup>
+                  <optgroup label="Industrijske Palete">
+                    <option value="Industrijska (100×120)">Industrijska (100×120 cm)</option>
+                    <option value="Industrijska (120×120)">Industrijska (120×120 cm)</option>
+                    <option value="Industrijska (100×100)">Industrijska (100×100 cm)</option>
+                    <option value="Industrijska (80×120)">Industrijska (80×120 cm)</option>
+                  </optgroup>
+                  <optgroup label="US Palete">
+                    <option value="US Paleta (48×40)">US Paleta (122×102 cm)</option>
+                    <option value="US Paleta (48×48)">US Paleta (122×122 cm)</option>
+                  </optgroup>
+                  <optgroup label="Azijske Palete">
+                    <option value="Azijska (110×110)">Azijska (110×110 cm)</option>
+                    <option value="Azijska (100×100)">Azijska (100×100 cm)</option>
+                  </optgroup>
+                  <optgroup label="Ostalo">
+                    <option value="Custom">Custom (unesi dimenzije)</option>
+                  </optgroup>
                 </select>
               </div>
+
+              {/* Custom Pallet Dimensions */}
+              {palletType === 'Custom' && (
+                <>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Dužina Palete (cm) *
+                    </label>
+                    <input 
+                      type="number" 
+                      placeholder="120"
+                      value={palletConfig.customLength || ''}
+                      onChange={(e) => setPalletConfig({...palletConfig, customLength: parseFloat(e.target.value) || 0})}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Širina Palete (cm) *
+                    </label>
+                    <input 
+                      type="number" 
+                      placeholder="80"
+                      value={palletConfig.customWidth || ''}
+                      onChange={(e) => setPalletConfig({...palletConfig, customWidth: parseFloat(e.target.value) || 0})}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+                </>
+              )}
 
               {/* Max Height */}
               <div>

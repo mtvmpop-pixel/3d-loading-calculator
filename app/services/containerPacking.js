@@ -1,5 +1,5 @@
-import { findBestOrientation } from './binPacking3D'
-import { containerDimensions } from './containerDimensions'
+import { findBestOrientation } from '../core/algorithms/binPacking3D'
+import { containerDimensions } from '../config/vehicles/containerDimensions'
 
 export function packPalletsInContainer(palletResults, containerType) {
   const container = containerDimensions[containerType]
@@ -33,7 +33,8 @@ export function packPalletsInContainer(palletResults, containerType) {
     avgPalletHeight,
     container.length,
     container.width,
-    container.height
+    container.height,
+    true  // isPallet = true
   )
   
   // NOVA LOGIKA: Dozvoli slojevito pakovanje
@@ -140,7 +141,8 @@ export function packCargoDirectly(cargoItems, containerType) {
         orientation.h,
         container.length,
         container.width,
-        container.height
+        container.height,
+        false  // isPallet = false
       )
       
       const maxUnitsByVolume = result.totalUnits

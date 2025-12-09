@@ -1,16 +1,16 @@
 'use client'
 
 import { useState } from 'react'
-import CalculatorForm from './components/CalculatorForm'
-import PalletResults from './components/PalletResults'
-import ContainerResults from './components/ContainerResults'
+import CalculatorForm from './components/forms/CalculatorForm'
+import PalletResults from './components/results/PalletResults'
+import ContainerResults from './components/results/ContainerResults'
 import Recommendations from './components/Recommendations'
-import Container3DViewer from './components/Container3DViewer'
-import { calculatePalletization } from './utils/palletPacking'
-import { packPalletsInContainer, packCargoDirectly } from './utils/containerPacking'
-import { groupByCompatibility } from './utils/palletDimensions'
-import { containerDimensions } from './utils/containerDimensions'
-import { generateItemPositions, generatePalletPositions } from './utils/position3D'
+import Container3DViewer from './components/visualization/Container3DViewer'
+import { calculatePalletization } from './services/palletPacking'
+import { packPalletsInContainer, packCargoDirectly } from './services/containerPacking'
+import { groupByCompatibility } from './config/pallets/palletDimensions'
+import { containerDimensions } from './config/vehicles/containerDimensions'
+import { generateItemPositions, generatePalletPositions } from './core/algorithms/position3D'
 
 export default function Home() {
   const [usePalletization, setUsePalletization] = useState(false)

@@ -1,5 +1,5 @@
-import { findBestOrientation } from './binPacking3D'
-import { palletDimensions } from './palletDimensions'
+import { findBestOrientation } from '../core/algorithms/binPacking3D'
+import { palletDimensions } from '../config/pallets/palletDimensions'
 
 const HEIGHT_OPTIONS = [70, 80, 90, 100, 110, 120]
 
@@ -48,7 +48,8 @@ export function generateOptimizationRecommendations(cargo, currentResult) {
           orientation.h,
           pallet.length,
           pallet.width,
-          maxHeight
+          maxHeight,
+          false  // isPallet = false
         )
 
         if (!result) return
@@ -121,7 +122,8 @@ export function generateOptimizationRecommendations(cargo, currentResult) {
           adjustedCargo.height,
           currentPallet.length,
           currentPallet.width,
-          currentResult.cargoHeight || 100
+          currentResult.cargoHeight || 100,
+          false  // isPallet = false
         )
 
         if (!result) return
